@@ -1,0 +1,137 @@
+  /* HEADER */
+  
+  h1 {
+    font-size: 22px;
+    font-weight: bold;
+  }
+  
+  .header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100vw;
+    height: 30vw;
+    /* background-color: #f00; */
+    background-image: url("http://lorempixel.com/1366/698/food/");
+    background-size: cover;
+  }
+  
+  .header-inner {
+    text-align: center;
+    color: #ff3f34;
+    text-shadow: 0px 10px 10px rgba(0, 0, 0, .8);
+  }
+  
+  .header-inner h1 {
+    font-size: 130px;
+  }
+  
+  
+  /*  CONTAINER */
+  .container {
+    width: 80%;
+    border-radius: 30px;
+    padding-left: 10%;
+    padding-right: 10%;
+    margin-top: 50px;
+  }
+  
+  .block {
+    background-color: rgb(105, 191, 18);
+    height: 80%;
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+  }
+  
+  /*
+  .block :first-child {
+    border-top-left-radius: 30px;
+    border-top-right-radius: 30px;
+  }
+  
+  .block :nth-last-child() {
+    border-bottom-left-radius: 30px;
+    border-bottom-right-radius: 30px;
+  }
+  */
+  
+  .card {
+    display: flex;
+    flex-direction: column;
+    border-radius: 40px;
+    width: 35%;
+    margin-top: 10%;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    
+  }
+  
+  article {
+    text-align: center;
+    border-radius: 0 0 20px 20px;
+    width: 100%;
+    background-color: rgb(239, 235, 20);
+    text-align: center;
+    color: white;
+    
+  }
+  
+  .card-image {
+    border-radius: 20px 20px 0px 0px;
+    height: 126px;
+    object-fit: cover;
+  }
+  
+  
+  h1 {
+    font-size: 2em;
+  }
+  
+  input[type="text"], input[type="password"], input[type="email"] {
+    display: block;
+    width: 100%;
+    padding: .5em;
+    border: solid .1em darkgray;
+    margin: 1em 0;
+    margin-bottom: 1em;
+    border-radius: .3em;
+    font-size: 1.05em;
+  }
+  
+  label {
+    font-size: 1.1em;
+  }
+  
+  button {
+    cursor: pointer;
+  }
+  
+  button[type="submit"], .delete {
+    margin: 1em 0;
+    border: none;
+    padding: .5em 1em;
+    font-size: 1em;
+    color: white;
+    border: solid darkcyan .1em;
+    border-radius: .3em;
+    background-color: lightseagreen;
+  }
+  
+  button[type="submit"]:hover {
+    background-color: rgb(71, 148, 144);
+    color: lightgoldenrodyellow;
+  }
+  
+  .delete {
+    background-color: #ff3f34 !important;
+    border-color: #b1231c;
+  }
+  
+  .toSend{
+    display: inline-flex;
+    margin: 1rem;
+    justify-content: space-between;
+  }
+  .buttonSend{
+    margin: 0px 20px !important;
+  }

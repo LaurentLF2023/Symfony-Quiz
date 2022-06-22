@@ -1,0 +1,22 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello QuizzController!
+{% endblock %}
+
+{% block body %}
+	<div class="div" style="flex: 2;">
+		<main>
+			<div class="example-wrapper">
+				{% if app.user %}
+					<a href="{{path('app_quizz_new')}}">New quizz</a>
+				{% endif %}
+
+				{% for quizz in quizzs %}
+					<p style="font-size: 1.6rem;">{{ quizz.name }}
+						<a style="color: blue; "href="{{path('app_quizz_show', {id: quizz.id})}}">Faire le quiz</a>
+					</p>
+				{% endfor %}
+			</div>
+		</main>
+	</div>
+{% endblock %}

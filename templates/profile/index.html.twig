@@ -1,0 +1,28 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Your Profile!
+{% endblock %}
+
+{% block body %}
+	<div style="flex: 1.5">
+		<h2>{{user.email}}
+			<a href="{{path('app_edit_profile')}}">edit</a>
+		</h2>
+		<br>
+		<strong style="font-size: 1.4rem;">Mes scores:</strong>
+		{% for item in history %}
+			<p style="font-size: 1.2rem;">{{item.categorie.name}}
+				:
+												({{item.score}})</p>
+		{% endfor %}
+
+		<strong style="font-size: 1.4rem;">Mes quizz:</strong>
+		{% for item in quizz%}
+			<p style="font-size: 1.4rem;">{{item.name}}
+				<a href="{{path('app_quizz_edit', {id: item.id})}}">edit ...</a>
+			</p>
+		{% endfor %}
+
+	</div>
+	<div></div>
+{% endblock %}

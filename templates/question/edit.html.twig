@@ -1,0 +1,22 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Edit Question
+{% endblock %}
+
+{% block body %}
+.
+	<div style="flex: 1">
+		<h1>Edit Question</h1>
+		{{ include('question/_form.html.twig', {'button_label': 'Update'}) }}
+		<a href="{{ path('app_quizz_edit', {id: 1}) }}">back to list</a>
+		{{ include('question/_delete_form.html.twig') }}
+		{{ form_start(form_reponse) }}
+		{{ form_widget(form_reponse) }}
+		<button type="submit">{{ button_label|default('Save') }}</button>
+		{{ form_end(form_reponse) }}
+		{% for reponse in reponses %}
+			<p>{{reponse.reponse}}
+				{{ include('reponse/_delete_form.html.twig') }}
+			{% endfor %}
+	</div>
+	{% endblock %}

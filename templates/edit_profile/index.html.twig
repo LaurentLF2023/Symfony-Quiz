@@ -1,0 +1,25 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Edit Profile
+{% endblock %}
+
+{% block body %}
+
+
+	<div style="flex: 1.5;">
+
+		{{ form_start(mailForm) }}
+
+		{{form_label(mailForm.email)}}
+		<div style="display: flex; column-gap: 2rem;">
+			<div style="flex: 1;">{{form_widget(mailForm.email)}}</div>
+			<div style="flex:1;">{{form_widget(mailForm.Soumettre)}}</div>
+		</div>
+
+		{{form_end(mailForm)}}
+
+		{{ form_start(form) }}
+		{{ form_row(form.password) }}
+		{{ form_end(form) }}
+	</div>
+{% endblock %}

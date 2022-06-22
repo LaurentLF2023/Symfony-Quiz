@@ -1,0 +1,64 @@
+<!-- NAVBAR -->
+<nav class="navbar">
+	<div style="display: inline-flex;">
+		<a href="{{ path('index')}}"><img class="logo" src="{{asset('styles/myquizz.png')}}" alt=""></a>
+		{# <ul class="navbar-links">
+							<s></s>
+							<li class="navbar-dropdown">
+								<a href="#">Categorie</a>
+								<div class="dropdown">
+									<a href="#">Harry Potter</a>
+									<a href="#">Sigles français</a>
+									<a href="#">Définitions de mots</a>
+									<a href="#">Spécialités culinaires</a>
+									<a href="#">Jeux de société</a>
+									<a href="#">Programmation</a>
+									<a href="#">Sigles informatiques</a>
+									<div class="navbar-dropdown">
+										<a href="#">Séries TV</a>
+										<div class="dropdown">
+											<a href="#">Simpsons : partie 1</a>
+											<a href="#">Simpsons : partie 2</a>
+											<a href="#">Stargate</a>
+											<a href="#">NCIS</a>
+										</div>
+									</div>
+								</div>
+							</li>
+						</ul> #}
+	</div>
+
+	{% if app.user %}
+
+		<div class="sub-main">
+			{% if is_granted('ROLE_ADMIN') %}
+				<a class="button1" style="background: darkred;" href="{{path('admin')}}">
+					<span>Panel</span>
+				</a>
+			{% endif %}
+			<a class="button1" href="{{path('app_profile')}}">
+				<span>Profile</span>
+			</a>
+
+			<form action="{{path('app_logout')}}" method="POST">
+				<button class="button2">
+					<span>Logout</span>
+				</button>
+			</form>
+		</div>
+	{% else %}
+		<div class="sub-main">
+			<a class="button1" href="{{path('app_register')}}">
+				<span>Inscription</span>
+			</a>
+
+			<a class="button2" href="{{path('app_login')}}">
+				<span>Connexion</span>
+			</a>
+		</div>
+	{% endif %}
+</nav>
+
+<div class="nav-logo">
+	<img src="../../../../public/styles/myquizz.png" alt=""/>
+</div></nav></div>

@@ -1,0 +1,33 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello QuizzController!
+{% endblock %}
+
+{% block body %}
+	<div class="div" style="flex: 2;">
+
+		<div class="example-wrapper">
+			{% if question is null %}
+				<h2>Aucune question dans le Quizz</h2>
+			{% endif %}
+
+			{% if question is not null %}
+				<form method="POST" action="{{path('app_quizz_validate', {id: quizz.id, question: index})}}">
+					<fieldset>
+						<legend>{{ question.getQuestion()}}</legend>
+						{% for reponse in question.getReponses() %}
+							<div class="div">
+								<input required="true" value="{{ reponse.id }}" type="radio" name="reponse" id="{{loop.index}}">
+								<label for="{{question.getId()}}">
+									{{reponse.reponse}}</label>
+							</div>
+						{% endfor %}
+					</fieldset>
+
+					<button type="submit">Valider</button>
+				</form>
+			{% endif %}
+
+		</div>
+	</div>
+{% endblock %}

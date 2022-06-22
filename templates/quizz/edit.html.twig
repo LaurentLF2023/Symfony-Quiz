@@ -1,0 +1,55 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello QuizzController!
+{% endblock %}
+
+{% block body %}
+
+	<div class="div" style="flex: 2;">
+		<h1>{{ categorie.name }}</h1>
+		{{ form_start(categorie_form)}}
+		<strong>{{form_label(categorie_form.name)}}</strong>
+		<div style="display: flex; column-gap: 2rem;">
+			<div style="flex: 2;">{{ form_widget(categorie_form.name) }}</div>
+			<div style="flex: 1;">
+				<button type="submit">Sauvegarder modification</button>
+			</div>
+		</div>
+		{{ form_end(categorie_form) }}
+
+
+		{{ form_start(question_form) }}
+		<strong>{{form_label(question_form.question)}}</strong>
+		<div style="display: flex; column-gap: 2rem;">
+			<div style="flex: 2;">{{ form_widget(question_form.question) }}</div>
+			<div style="flex: 1;">
+				<button type="submit">Nouvelle Question</button>
+			</div>
+		</div>
+		{{ form_end(question_form) }}
+
+		{% if questions is not empty %}
+			{% for question in questions %}
+				<ul style="margin-bottom: 1em; font-size: 1.4em">
+					<li>
+						<strong>{{ question.question}}</strong>
+						<a href="{{path('app_question_edit', {'id': question.id})}}">Edit</a>
+					</li>
+					<ul style="margin-left: 2em">
+						{% for reponse in question.reponses %}
+							<li>{{(reponse.reponseexpected) ? '✅': '❌'}}{{reponse.reponse}}</li>
+						{% endfor %}
+					</ul>
+				</ul>
+			{% endfor %}
+		{% else %}
+			<h1>No question here yet</h1>
+		{% endif %}
+
+
+		<form method="post" action="{{ path('app_quizz_delete', {'id': categorie.id}) }}" onsubmit="return confirm('Are you sure you want to delete this item?');">
+			<input type="hidden" name="_token" value="{{ csrf_token('delete' ~ categorie.id) }}">
+			<button class="btn delete">Delete Quizz</button>
+		</form>
+	</div>
+{% endblock %}

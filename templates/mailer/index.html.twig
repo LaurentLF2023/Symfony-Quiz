@@ -1,0 +1,32 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello MailerController!{% endblock %}
+
+{% block body %}
+<div style= "display: flex; flex-direction: column;">
+    <div class= "toSend">
+        <p>Envoyer un rappel pour tous les utilisateurs qui se sont connecté il y a plus d'un mois</p>
+        <a class="button1 buttonSend" href="{{path('app_overMonth')}}">
+        	<span>Envoyer</span>
+        </a>
+    </div>
+    <div class= "toSend">
+        <p>Envoyer un rappel pour tous les utilisateurs qui se sont connecté depuis moins d'un mois</p>
+        <a class="button1 buttonSend" href="{{path('app_lastMonth')}}">
+        	<span>Envoyer</span>
+        </a>
+    </div>
+    <div class= "toSend">
+        <p>Envoyer un rappel pour tous les utilisateurs ont fait des 3 questionnaires</p>
+        <a class="button1 buttonSend" href="{{path('app_sendLightPlayers')}}">
+        	<span>Envoyer</span>
+        </a>
+    </div>
+    <div class= "toSend">
+        <p>Envoyer un rappel pour tous les utilisateurs qui fait plus de 10 questionnaires</p>
+        <a class="button1 buttonSend" href="{{path('app_sendMidPlayers')}}">
+        	<span>Envoyer</span>
+        </a>
+    </div>
+</div>
+{% endblock %}
